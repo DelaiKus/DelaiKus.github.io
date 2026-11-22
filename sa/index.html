@@ -391,12 +391,12 @@
             <h3>Modular Business Platform · Task Manager</h3>
             <p class="problem">A modular-monolith business platform designed to host multiple business modules, starting with a configurable task-management system inspired by Jira and Linear.</p>
             <ul class="project-points">
-              <li>Designed a shared platform core for identity, organizations, memberships, teams, roles, permissions, invitations, and administration.</li>
-              <li>Implemented task-management capabilities including projects, task types, custom fields, configurable statuses and workflows, Kanban boards, labels, comments, attachments, task links, search, reporting, and exports.</li>
-              <li>Added backend-enforced authorization, project-level membership controls, session-based authentication, TOTP two-factor authentication, and OIDC/Keycloak integration.</li>
-              <li>Built for reproducible local development with Docker Compose and PostgreSQL, while keeping a path open for future on-premise deployment.</li>
+              <li>Designed a platform core shared by future business modules: identity, organization tenancy, memberships, teams, invitations, namespaced roles and permissions, and centralized authorization.</li>
+              <li>Implemented the Task Manager domain across projects, task types, custom fields, labels, task relationships, comments, attachments, configurable workflows and transitions, Kanban boards, saved views, search, reports, and PDF/XLSX exports.</li>
+              <li>Built backend-enforced organization- and project-level access control, session-based authentication, TOTP two-factor authentication, and OIDC login with a local Keycloak identity provider.</li>
+              <li>Set up reproducible local development with Docker Compose, PostgreSQL, and Mailpit; kept deployment boundaries suitable for a later single-server on-premise installation without introducing microservices.</li>
             </ul>
-            <div class="project-tags"><span>Next.js</span><span>React</span><span>TypeScript</span><span>NestJS</span><span>Fastify</span><span>PostgreSQL</span><span>Prisma</span><span>Docker</span><span>Turborepo</span></div>
+            <div class="project-tags"><span>Next.js</span><span>React</span><span>TypeScript</span><span>NestJS</span><span>Fastify</span><span>PostgreSQL</span><span>Prisma</span><span>Keycloak / OIDC</span><span>Docker</span><span>Turborepo</span></div>
             <div class="project-links"><span class="private-note">Private repository · architecture and implementation available for discussion</span></div>
           </article>
 
@@ -405,18 +405,20 @@
             <h3>SPOTR · Athlete & Coach Platform</h3>
             <p class="problem">A fitness platform with a native mobile experience for athletes and a web workspace for trainers, built around one user identity and optional trainer functionality.</p>
             <ul class="project-points">
-              <li>Designed a shared domain model for athlete profiles, trainer entitlements, trainer–athlete relationships, training plans, scheduling, workout sessions, and progress.</li>
-              <li>Built separate mobile and web applications on shared TypeScript domain, API, and validation packages.</li>
-              <li>Implemented PostgreSQL-backed business rules using Supabase RPC, row-level security, audit events, and typed API contracts.</li>
-              <li>Designed an end-to-end encrypted messaging integration using Matrix as a separate messaging layer rather than storing message content in the application database.</li>
+              <li>Designed and implemented a modular product foundation with native Expo/React Native and Next.js clients, shared TypeScript domain/API/validation packages, and a single athlete identity that can also hold trainer entitlements.</li>
+              <li>Built the training lifecycle across exercise catalogues, versioned plans, trainer assignments, calendar scheduling, workout execution, corrections, history, and progress using PostgreSQL RPC functions, row-level security, and audit events.</li>
+              <li>Implemented nutrition and hydration workflows: personal and trainer-assigned plans, food search and custom foods, meal journals, hydration plans, and drink logs.</li>
+              <li>Developed a Gemini-backed food-photo analysis flow that returns schema-validated ingredient and weight estimates as an editable draft; users review and confirm the result before it becomes a logged meal.</li>
+              <li>Added offline-aware workout execution with SQLite persistence, an ordered sync outbox, retry handling, and idempotent corrections.</li>
+              <li>Developed a Matrix-based end-to-end encrypted messaging sidecar, keeping message content outside the core application database.</li>
             </ul>
-            <div class="project-tags"><span>Expo</span><span>React Native</span><span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>PostgreSQL</span><span>RLS</span><span>Zod</span><span>TanStack Query</span><span>Matrix</span></div>
+            <div class="project-tags"><span>Expo</span><span>React Native</span><span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>PostgreSQL</span><span>RLS</span><span>Zod</span><span>TanStack Query</span><span>SQLite</span><span>Gemini</span><span>Matrix E2EE</span></div>
             <div class="project-links"><span class="private-note">Private repository · product and technical overview available on request</span></div>
           </article>
 
           <article class="project-card">
             <div class="project-top"><span class="project-type">Developer tooling</span><span class="project-status">Personal product</span></div>
-            <h3>CryptoForge · Exchange API Explorer & Go SDK Generator</h3>
+            <h3>CryptoForge · Exchange API Explorer & Go Adapter Generator</h3>
             <p class="problem">A macOS developer tool intended to simplify connectivity to multiple cryptocurrency exchanges through a unified API exploration environment and automated Go adapter generation.</p>
             <ul class="project-points">
               <li>Designed a unified specification model for exchange endpoints, authentication patterns, and response structures.</li>
@@ -479,10 +481,10 @@
         <div class="stack-groups">
           <div class="stack-row"><strong>Protocols & integration</strong><span>FIX · REST · WebSocket · SOAP · gRPC · OpenAPI · Swagger</span></div>
           <div class="stack-row"><strong>Architecture & messaging</strong><span>Microservices · Distributed Systems · Event-Driven Architecture · Kafka · RabbitMQ</span></div>
-          <div class="stack-row"><strong>Data & backend</strong><span>PostgreSQL · MySQL · MS SQL Server · SQL · Go · TypeScript</span></div>
+          <div class="stack-row"><strong>Data & backend</strong><span>PostgreSQL · MySQL · MS SQL Server · SQL · Go · TypeScript · Node.js · Prisma</span></div>
           <div class="stack-row"><strong>Product & analysis</strong><span>Jira · Confluence · Figma · Miro · BPMN 2.0 · UML · Camunda · Lucidchart</span></div>
           <div class="stack-row"><strong>Engineering & quality</strong><span>Git · Postman · Vitest · Playwright · CI/CD · Grafana · Kibana</span></div>
-          <div class="stack-row"><strong>AI development</strong><span>Claude Code · Cursor · ChatGPT · Gemini · LLM-assisted workflows · Agentic coding</span></div>
+          <div class="stack-row"><strong>AI development</strong><span>Claude Code · Cursor · Cursor SDK · ChatGPT · Gemini · AI vision workflows · LLM-assisted analysis and implementation</span></div>
         </div>
       </section>
 
